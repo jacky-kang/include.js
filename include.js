@@ -14,9 +14,11 @@
         var $this = $(this)
         var src = $this.attr('src')
         var tag = $this.attr('tag')
+        var cls = $this.attr('class')
         var dom = document.createElement(tag || 'div')
         $this.replaceWith(dom)
         $this = $(dom)
+        if (cls) $this.addClass(cls)
         if (src) {
           $this.load(src, function () {
             stats[index] = true
